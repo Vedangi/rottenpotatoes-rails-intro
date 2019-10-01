@@ -1,4 +1,3 @@
-       /*.hilite*/
-#movies {
+table#movies th.hilite{
   background-color: yellow;
 }
