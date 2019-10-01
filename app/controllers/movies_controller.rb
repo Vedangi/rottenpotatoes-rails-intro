@@ -11,11 +11,11 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
+    #@movies = Movie.all
     
-  #   @sort=params[:sort]
+     @sort=params[:sort]
   # # @movies= Movie.find(:all, :order=> (params[:sort_by]))
-  #   @movies=Movie.all.order(:sort)
+     @movies=Movie.all.order(@sort)
   end
 
   def new
