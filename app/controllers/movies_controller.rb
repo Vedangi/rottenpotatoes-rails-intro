@@ -12,13 +12,18 @@ class MoviesController < ApplicationController
 
   def index
      #@movies = Movie.all
-     @all_ratings = Movie.ratings #prt3 
-     @sort_column=params[:sort]   #prt2
-     @movies=Movie.all.order(@sort_column) #part2
+     @all_ratings = Movie.ratings #prt2 
+     @sort_column=params[:sort] || session[:sort]  #prt1+3
+     session[:ratings] = session[:ratings] || {'G'=>'','R'=>'','PG-13'=>'','PG'=>''}     #@all_ratings
+     #params[:ratings].nil ? @var_param = session[:ratings] : @var_param = params[:ratings].keys #part3
+     @var_param = params[:ratings] || session[:ratings]
+     session[:sort]= @sort_column
+     session[:ratings]= @var_param
+     #@movies=Movie.all.order(@sort_column) #part1
+     @movies=Movie.where(rating: session[:ratings].keys).order(session[:sort])   #part3
      
      
-     #params[:ratings].nil ? @var_param = @all_ratings : @var_param = params[:ratings].keys #part3
-     #@movies=Movie.where(rating: @var_param).order(@sort_column)   #part3
+    
     
   end
 
