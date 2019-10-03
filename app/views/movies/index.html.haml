@@ -2,12 +2,12 @@
 
 %h2 All Movies
 //part3
-= form_tag movies_path, :method => :get do
+= form_tag movies_path, :method => :get,:id => 'form_id' do  
   Include:
   - @all_ratings.each do |rating|
     = rating
-    = check_box_tag "ratings[#{rating}]",'',('checked' if @var_param.include? rating)
-  = submit_tag 'Refresh', :class => 'btn btn-primary'
+    = check_box_tag "ratings[#{rating}]",'',('checked' if @var_param.include? rating),:id => "ratings_#{rating}"
+  = submit_tag 'Refresh', :class => 'btn btn-primary',:id=> 'ratings_submit'
 %br/  
 %table#movies.table.table-striped.col-md-12
   %thead

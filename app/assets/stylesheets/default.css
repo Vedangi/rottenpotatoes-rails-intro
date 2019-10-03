@@ -1,4 +1,8 @@
 table#movies th.hilite{
-  background-color: green;
+  background-color: yellow;
 }
+#ratings_submit{
+    background-color: green
+}
+
 /*th.hilite*/
