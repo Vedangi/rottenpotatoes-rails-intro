@@ -11,22 +11,16 @@ class MoviesController < ApplicationController
   end
 
   def index
-     #@movies = Movie.all
-     @all_ratings = Movie.ratings #prt2 
-     @sort_column=params[:sort] || session[:sort]  
+     
+     @all_ratings = Movie.ratings           #get the ratings from Model   
+     @sort_column=params[:sort] || session[:sort]   # set the column to be sorted from parameters or previous session
      session[:ratings] = session[:ratings] || {'G'=>'','R'=>'','PG-13'=>'','PG'=>''}  
-     
-     #params[:ratings].nil ? @var_param = session[:ratings] : @var_param = params[:ratings].keys #part3
-     
      @var_param = params[:ratings] || session[:ratings]
      session[:sort]= @sort_column
      session[:ratings]= @var_param
      #@movies=Movie.all.order(@sort_column) #part1
-     @movies=Movie.where(rating: session[:ratings].keys).order(session[:sort])   #part3
+     @movies=Movie.where(rating: session[:ratings].keys).order(session[:sort])   #show movies with selected ratings and sort by column selected
      
-     
-    
-    
   end
 
   def new
