@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
      session[:sort]= @sort_column
      session[:ratings]= @var_param
      #@movies=Movie.all.order(@sort_column) #part1
-     @movies=Movie.where(rating: session[:ratings].keys).order(session[:sort])   #part3
+     @movies=Movie.where(rating: session[:ratings]).order(session[:sort])   #part3
      
      
     
