@@ -18,8 +18,8 @@ class MoviesController < ApplicationController
      @var_param = params[:ratings] || session[:ratings]
      session[:sort]= @sort_column
      session[:ratings]= @var_param
-     #@movies=Movie.all.order(@sort_column) #part1
      @movies=Movie.where(rating: session[:ratings].keys).order(session[:sort])   #show movies with selected ratings and sort by column selected
+     #@movies=Movie.all.order(@sort_column) #part1
      
   end
 
