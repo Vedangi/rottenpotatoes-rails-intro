@@ -13,8 +13,8 @@ class MoviesController < ApplicationController
   def index
      #@movies = Movie.all
      @all_ratings = Movie.ratings #prt2 
-     @sort_column=params[:sort] || session[:sort]  #prt1+3
-     session[:ratings] = session[:ratings] || {'G'=>'','R'=>'','PG-13'=>'','PG'=>''}    #@all_ratings  
+     @sort_column=params[:sort] || session[:sort]  
+     session[:ratings] = session[:ratings] || {'G'=>'','R'=>'','PG-13'=>'','PG'=>''}  
      
      #params[:ratings].nil ? @var_param = session[:ratings] : @var_param = params[:ratings].keys #part3
      
