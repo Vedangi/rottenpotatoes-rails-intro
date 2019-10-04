@@ -14,8 +14,10 @@ class MoviesController < ApplicationController
      #@movies = Movie.all
      @all_ratings = Movie.ratings #prt2 
      @sort_column=params[:sort] || session[:sort]  #prt1+3
-     session[:ratings] = session[:ratings] || @all_ratings  #{'G'=>'','R'=>'','PG-13'=>'','PG'=>''}    
+     session[:ratings] = session[:ratings] || @all_ratings  #{'G'=>'','R'=>'','PG-13'=>'','PG'=>''}   
+     
      #params[:ratings].nil ? @var_param = session[:ratings] : @var_param = params[:ratings].keys #part3
+     
      @var_param = params[:ratings] || session[:ratings]
      session[:sort]= @sort_column
      session[:ratings]= @var_param
